@@ -1,0 +1,19 @@
+nav{
+    background-color: rgba(0, 0, 0, 0.3);
+    
+}
+.square {
+     
+        height: 500px;
+        border: solid;
+        margin-right: 100px;
+    
+}
+h3{
+
+    font-weight: 400;
+}
+footer{
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
+}
