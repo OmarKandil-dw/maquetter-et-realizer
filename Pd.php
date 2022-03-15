@@ -10,6 +10,7 @@
     <title>Product details</title>
 </head>
 <body>
+    <?php include 'nav.php'?>
     <header>
         <div>
 </div>
@@ -30,7 +31,7 @@
                 </div>
                 <div class="col"><h3 class="py-3"><?php echo $row['libelle'];?></h3><br>
                 <h6 class="py-2"><?php echo $row['description'];?></h6><br>
-                 <h3 class="py-3"><?php echo $row['prix'];?></h3><h3 class="text-danger">This Product Is Out Of Stock</h3><br>
+                 <h3 class="py-3"><?php echo $row['prix'];?></h3><h3 class="text-danger"> <?php if($row['stock'] > 10){echo '<span style="color:#4BB543;">In Stock</span>';}elseif($row['stock']< 10 && $row['stock'] > 0){echo '<span style="color:#FF7900;">only '.$row['stock'].' left</span>';}else{echo '<span style="color: #FF0000;">Out of Stock</span>';} ?></h3><br>
                 
             
             </div>
