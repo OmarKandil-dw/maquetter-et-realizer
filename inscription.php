@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="1646826725874.webp" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Uman | Sign Up</title>
 
 </head>
 <style>
@@ -89,29 +90,30 @@ nav{
     ?>
   <div class="form-group">
     <label for="formGroupExampleInput">First Name*</label>
-    <input name="fname" type="text" class="form-control" id="formGroupExampleInput" placeholder="First name ">
+    <input name="fname" type="text" class="form-control" id="formGroupExampleInput" placeholder="First name " required>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput"> Last name*</label>
-    <input name="lname" type="text" class="form-control" id="formGroupExampleInput" placeholder="Last name ">
+    <input name="lname" type="text" class="form-control" id="formGroupExampleInput" placeholder="Last name" required>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput"> Adresse*</label>
-    <input name="adress" type="text" class="form-control" id="formGroupExampleInput" placeholder="Adresse">
+    <input name="adress" type="text" class="form-control" id="formGroupExampleInput" placeholder="Adresse" required>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput">Phone*</label>
-    <input name="phone" type="float" class="form-control" id="formGroupExampleInput" placeholder="0605040302">
+    <input name="phone" type="float" class="form-control" id="formGroupExampleInput" placeholder="0605040302" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?\d{3}\d{4}$" required>
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput">Email*</label>
-    <input name="email" type="text" class="form-control" id="formGroupExampleInput" placeholder="example@gmail.com">
+    <input name="email" type="text" class="form-control" id="formGroupExampleInput" placeholder="example@gmail.com" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput2">Password*</label>
-    <input name="pwd" type="password" class="form-control" id="formGroupExampleInput2" placeholder="*****">
+    <!-- ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$ -->
+    <input name="pwd" type="password" class="form-control" id="formGroupExampleInput2" placeholder="*****"  required>
   </div>
   
   <div class="d-flex justify-content-center">

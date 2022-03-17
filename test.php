@@ -49,4 +49,60 @@ mysqli_close($con);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+include "connection.php";
+session_start();
+if(isset($_POST['add'])){
+    $count = $_SESSION['count'];
+        $qte = $_POST['qte'];
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM Client WHERE email = '$email'";
+        $query = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($query);
+        $timestamp = rand( strtotime("mar 17 2022"), strtotime("dec 30 2022") );
+        $random_Date = date("Y-m-d", $timestamp );
+        if($count == 0){
+            $idcli = $row['idClient'];
+            $adress = $row['adresse'];
+            $sql1 = "INSERT INTO commande (date, adresseLivraison, idClient ) VALUES ('$random_Date', '$adress', '$idcli')";
+            // $query1 = mysqli_query($con, $sql1);
+            $sql2 = "select * from Commande where idCommande = (SELECT LAST_INSERT_ID())";
+            // echo $sql1;
+            echo $sql2;
+            $count++;   
+        }
+    // header("Location: product.php"); 
+    // exit(); 
+}
+        ?>
+
+
     

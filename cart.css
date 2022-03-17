@@ -1,0 +1,39 @@
+.div1{
+    width: 70%;
+}
+.div2{
+    width: 30%;
+}
+.text-dark{
+font-weight: 400;
+}
+#bag{
+    color: #C4C4C4;
+    height: 7px;
+    border-radius: 10px;
+    margin-right: 5px;
+
+}
+.square {
+    height: 200px;
+    width: 200px;
+    background-color: #555;
+}
+#pro{
+    color: #C4C4C4;
+    height: 4px;
+    border-radius: 7px;
+    margin-right: 5px;
+}
+.div2{
+    margin-top: 100px;
+    background-color: #D5D5D5;
+    width: 30%;
+
+}
+#summ {
+    color: black;
+    height: 4px;
+    border-radius: 10px;
+    margin-right: 5px;
+}

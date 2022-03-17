@@ -1,38 +1,37 @@
-<?php include"links.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="1646826725874.webp" type="image/x-icon">
-    <title>Uman | Products</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" href="1646826725874.webp" type="image/x-icon">
+        <title>Uman | Products</title>
 </head>
 <body>
     <header>
         <style>
             .nav {
-    background-color: rgb(86 81 82 / 77%);
-}
-.square {
-
-height: 250px;
-border: solid;
-}
-.grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 100px;
-  grid-auto-rows: minmax(50px, auto);
-}
-
-.fill {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
+                background-color: rgb(86 81 82 / 77%);
+            }
+            .square {
+                
+                height: 250px;
+                border: solid;
+            }
+            .grid{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 100px;
+                grid-auto-rows: minmax(50px, auto);
+            }
+            
+            .fill {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden
 }
 .fill img {
     flex-shrink: 0;
@@ -40,11 +39,16 @@ border: solid;
     min-height: 70%;
 }
 
-        </style>
+</style>
 
 <?php
-session_start();
-include 'nav.php';?>
+    session_start();
+if($_SESSION['state']==''){
+    include "nav.php";
+}else{
+       include "nav-c.php";
+   };
+   ?>
 
     <div class="banner-image img-fluid w-100 vh-100 d-flex justify-content-center 
     align-items-center" 
@@ -89,7 +93,9 @@ include 'nav.php';?>
 
 
 
-      <?php include 'footer.php'; ?>
+      <?php include 'footer.php'; 
+            include 'links.php';
+      ?>
 
      </main>
 </body>

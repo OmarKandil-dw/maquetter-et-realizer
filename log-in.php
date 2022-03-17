@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="1646826725874.webp" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Uman | Log In</title>
     <style>
     
       input[type=text],[type=passowrd] {
@@ -27,7 +28,10 @@
     </style>
 </head>
 <body>
-    <?php include"nav.php"?>
+    <?php
+    session_start();
+    $_SESSION['state']='';
+    include"nav.php"?>
 <main>
   
     <section id="inscr">
@@ -55,31 +59,28 @@
           if (mysqli_num_rows($checkPwd) == 0) {
             $valid++;
           }
+
           if($valid != 0){
             echo  "<p style=\"color: red;\">wrong email or password</p>";
           }else{
             $_SESSION['state']=$email.":logged in";
+            $_SESSION['email']=$email;
+            $_SESSION['count']=0;
             header("Location: index.php"); 
             exit(); 
           }
         }
     ?>
   
-<div>
+<div class="form-group">
     <label for="formGroupExampleInput">Email*</label> <br>   
-    <input  name="email" type="text"  placeholder="example@gmail.com" style="width: 180%;">
+    <input  class="form-control " name="email" type="text"  placeholder="example@gmail.com" style="width: 180%;">
 </div>
-    <div>
+    <div class="form-group">
     <label for="formGroupExampleInput2">Password*</label> <br>
-    <input  name="pwd" type="password" placeholder="*****" style="width: 180%;"> 
+    <input class="form-control" name="pwd" type="password" placeholder="******" style="width: 180%;"> 
   </div>
 
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-  <label class="form-check-label" for="flexCheckChecked">
-    Remember me
-  </label> <br>
-</div>
 </section>
 <section>
 

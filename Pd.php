@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="Pd.css">
     <title>Product details</title>
+    <style>
+        .prd{
+            width: auto !important; /*override the width below*/
+  width: 100%;
+  max-width: 678px;
+  float: left;
+  clear: both;
+    flex-shrink: 0;
+    min-width: 70%;
+    min-height: 70%;
+}
+        
+    </style>
 </head>
 <body>
     <?php include 'nav.php'?>
@@ -23,23 +36,33 @@
             $sql = 'SELECT * FROM Produit WHERE idProduit ='.'"'.$prd.'"'; 
             $query = mysqli_query($con, $sql);  
             while($row = mysqli_fetch_array($query)) {
+                $value = $row['idProduit'];
+                $_SESSION['idprd'] = $row['idProduit'];
       ?>
         <div class="container">
-            <div class="row">
-                <div class="col square">
-                    <img src="<?php echo $row['image'];?>" alt="" srcset="">
+            <div class="row container-fluid">
+                <div class="col container-fluid">
+                    <img src="<?php echo $row['image'];?>" class="prd" >
                 </div>
                 <div class="col"><h3 class="py-3"><?php echo $row['libelle'];?></h3><br>
                 <h6 class="py-2"><?php echo $row['description'];?></h6><br>
-                 <h3 class="py-3"><?php echo $row['prix'];?></h3><h3 class="text-danger"> <?php if($row['stock'] > 10){echo '<span style="color:#4BB543;">In Stock</span>';}elseif($row['stock']< 10 && $row['stock'] > 0){echo '<span style="color:#FF7900;">only '.$row['stock'].' left</span>';}else{echo '<span style="color: #FF0000;">Out of Stock</span>';} ?></h3><br>
-                
-            
+                 <h3 class="py-3"><?php echo $row['prix'];?> €</h3><h3 class="text-danger"> <?php if($row['stock'] > 10){echo '<span style="color:#4BB543;">In Stock</span>';}elseif($row['stock']< 10 && $row['stock'] > 0){echo '<span style="color:#FF7900;">only '.$row['stock'].' left</span>';}else{echo '<span style="color: #FF0000;">Out of Stock</span>';} ?></h3><br>
+                    <form action="details.php" method="POST">
+                    <?php
+                        include "connection.php";
+                    ?>
+                    <label>Qte:</label>
+                      <input type="number" class="form-control" name="qte" min="1" value="1" style="width: 15%;">  
+                    <button type="submit" name="add" class="btn btn-dark" value="<?php echo $value;?>">Add to cart</button>
+                     <button type="submit" name="buy" class="btn btn-light" value="<?php echo $value;?>">Buy Now</button>
+                    </form>
             </div>
             </div>
         </div>
   </section>
   <!--footer-->
-  <?php } include"footer.php";?>
+  <?php } include"footer.php";
+  include"links.php";?>
 </footer>
 
     
