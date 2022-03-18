@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -12,9 +11,6 @@
 <body>
     <header>
         <style>
-            .nav {
-                background-color: rgb(86 81 82 / 77%);
-            }
             .square {
                 
                 height: 250px;

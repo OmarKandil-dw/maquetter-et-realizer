@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="Pd.css">
+    <link rel="icon" href="1646826725874.webp" type="image/x-icon">
     <title>Product details</title>
     <style>
         .prd{
@@ -23,7 +24,7 @@
     </style>
 </head>
 <body>
-    <?php include 'nav.php'?>
+    <?php include 'nav.php';?>
     <header>
         <div>
 </div>
@@ -52,7 +53,7 @@
                         include "connection.php";
                     ?>
                     <label>Qte:</label>
-                      <input type="number" class="form-control" name="qte" min="1" value="1" style="width: 15%;">  
+                      <input type="number" class="form-control" name="qte" min="1" max="10" value="1" style="width: 15%;">  
                     <button type="submit" name="add" class="btn btn-dark" value="<?php echo $value;?>">Add to cart</button>
                      <button type="submit" name="buy" class="btn btn-light" value="<?php echo $value;?>">Buy Now</button>
                     </form>

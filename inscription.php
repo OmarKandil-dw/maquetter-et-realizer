@@ -23,6 +23,9 @@ nav{
   width: 100%;
 }
 }
+.btn btn-secondary{
+    background-color: rgba(0, 0, 0, 0.2);
+}
 @media screen and (max-width: 200px) {
   .sectioncontent{ display: grid;
     grid-template-columns: 1fr ;
@@ -30,10 +33,13 @@ nav{
     padding: 10px 30px ;
   }
 }
+
 </style>
 
 <body>
-<?php include"nav.php";
+<?php
+session_start();
+include "nav.php";
 ?> 
 
 <main style="position: absolute; top:120px;">
@@ -82,7 +88,7 @@ nav{
         $sql = "INSERT INTO Client (idClient, nom, prenom, adresse, telephone, email, pass) VALUES ('$cli_id', '$fname', '$lname', '$adress', '$phone', '$email', '$pwd')";
         $query = mysqli_query($con, $sql);
         header("Location: log-in.php"); 
-        exit(); 
+        die(); 
         // connection closed.
         mysqli_close($con);
       }

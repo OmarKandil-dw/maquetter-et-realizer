@@ -43,9 +43,6 @@ CREATE TABLE `client` (
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`idClient`, `nom`, `prenom`, `adresse`, `telephone`, `email`, `pass`) VALUES
-('MA62320e615f5b34.95045208', 'aatrox', 'Battery', '124qasdf', '0601224180', 'younes_tm@outlook.com', 'Testing1234'),
-('MA62321090ae3c13.54190793', 'aatrox', 'Elabbas', '124qasdf', '0601224181', 'younes_ab@outlook.com', '1');
 
 -- --------------------------------------------------------
 
@@ -64,18 +61,6 @@ CREATE TABLE `commande` (
 -- Dumping data for table `commande`
 --
 
-INSERT INTO `commande` (`idCommande`, `date`, `adresseLivraison`, `idClient`) VALUES
-(157, '2022-03-17', '124qasdf', 'MA62321090ae3c13.54190793'),
-(158, '2022-05-17', '124qasdf', 'MA62321090ae3c13.54190793'),
-(159, '2022-12-16', '124qasdf', 'MA62321090ae3c13.54190793'),
-(160, '2022-09-15', '124qasdf', 'MA62321090ae3c13.54190793'),
-(161, '2022-05-26', '124qasdf', 'MA62321090ae3c13.54190793'),
-(162, '2022-07-03', '124qasdf', 'MA62321090ae3c13.54190793'),
-(163, '2022-10-13', '124qasdf', 'MA62321090ae3c13.54190793'),
-(164, '2022-10-10', '124qasdf', 'MA62321090ae3c13.54190793'),
-(165, '2022-09-28', '124qasdf', 'MA62321090ae3c13.54190793'),
-(166, '2022-05-27', '124qasdf', 'MA62321090ae3c13.54190793');
-
 -- --------------------------------------------------------
 
 --
@@ -91,9 +76,6 @@ CREATE TABLE `detailscommande` (
 --
 -- Dumping data for table `detailscommande`
 --
-
-INSERT INTO `detailscommande` (`idCommande`, `idProduit`, `quantite`) VALUES
-(166, 'PD622a7ab1f3ee47.91542660', 12);
 
 -- --------------------------------------------------------
 
@@ -114,13 +96,6 @@ CREATE TABLE `produit` (
 --
 -- Dumping data for table `produit`
 --
-
-INSERT INTO `produit` (`idProduit`, `libelle`, `description`, `prix`, `stock`, `image`, `Promo`) VALUES
-('PD622a7aa82ded18.78304602', 'first', 'first', '14', 14, 'product details/images/image 1.png', 1),
-('PD622a7ab1f3ee47.91542660', 'sec', 'sec', '14', 14, 'product details/images/image 2.png', 0),
-('PD622a7abe182d25.62632281', 'third', 'third', '14', 14, 'product details/images/image 3.png', 1),
-('PD622a7afdb75960.88761961', 'four', 'fourth', '14', 14, 'product details/images/image 4.png', 1),
-('PD622a7b1344a1f2.78170507', 'five', 'five', '14', 5, 'product details/images/image 5.png', 0);
 
 -- --------------------------------------------------------
 

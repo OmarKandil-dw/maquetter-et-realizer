@@ -24,53 +24,62 @@
     session_start();
     include "connection.php";
 if($_SESSION['state']==''){
-     include"nav.php";
+     include "nav.php";
     }else{
         include "nav-c.php";
     }
-    
+    $email = $_SESSION['email'];
+    if($email == ''){
+        header("Location: log-in.php"); 
+        exit(); 
+    }
+    function query ($q){
+        global $con;
+        return mysqli_query($con, $q);
+    }
+    function fetch($f){
+        return mysqli_fetch_array($f);
+    }
     //temp
     $sql1 = "SELECT * FROM temp";
-    $query1 = mysqli_query($con, $sql1);
-    $row1 = mysqli_fetch_array($query1);
+    $query1 = query($sql1);
+    $row1 = fetch($query1);
     $qte = $row1['quantity'];
     $prdid = $row1['idProduit'];
+
+
     //produit
     $sql = "SELECT * FROM Produit WHERE idProduit='$prdid'";
-    $query = mysqli_query($con, $sql);  
-    $row = mysqli_fetch_array($query);
+    $query = query($sql);  
+    $row = fetch($query);
+
     //client
+    $sql2 = "SELECT * FROM Client WHERE email = '$email'";
+    $query2 = query($sql2);  
+    $row2 = fetch($query2);
     
-    $count = $_SESSION['count'];
+    $idcli = $row2['idClient'];
+    $adress = $row2['adresse'];
+    
     $timestamp = rand( strtotime("mar 17 2022"), strtotime("dec 30 2022") );
     $random_Date = date("Y-m-d", $timestamp );
-    $email = $_SESSION['email'];
-    $sql2 = "SELECT * FROM Client WHERE email = '$email'";
-    $query2 = mysqli_query($con, $sql2);
-    $row2 = mysqli_fetch_array($query2);
-    
-    
-    if($count == 0){
-        $idcli = $row2['idClient'];
-        $adress = $row2['adresse'];
-        $sql3 = "INSERT INTO commande (date, adresseLivraison, idClient ) VALUES ('$random_Date', '$adress', '$idcli')";
-        $query3 = mysqli_query($con, $sql3);
+        $sql3 = "INSERT INTO Commande (date, adresseLivraison, idClient ) VALUES ('$random_Date', '$adress', '$idcli')";
+        $query3 = query($sql3);  
         
-        $sql4 = "select * from Commande where idCommande =(SELECT LAST_INSERT_ID())";
-        $query4 = mysqli_query($con, $sql4);
-        $row4 = mysqli_fetch_array($query4);
-        $cmdid = $row4['idCommande'];
-        while($row1){
-            global  $row1, $qte, $prdid;
+        // $sql4 = "select * from Commande where idCommande =(SELECT LAST_INSERT_ID())";
+        // $query4 = mysqli_query($con, $sql4);
+        // $row4 = mysqli_fetch_array($query4);
+        // $cmdid = $row4['idCommande'];
+        // while($row1){
+        //     global  $row1, $qte, $prdid;
 
-            $sql5 = "INSERT INTO detailscommande (idCommande, idProduit, quantite ) VALUES ('$cmdid', '$prdid', '$qte')";
-            $query5 = mysqli_query($con, $sql5);
-                        }
+        //     $sql5 = "INSERT INTO detailscommande (idCommande, idProduit, quantite ) VALUES ('$cmdid', '$prdid', '$qte')";
+        //     $query5 = mysqli_query($con, $sql5);
+        //                 }
 
-            }
-        // header("Location: product.php"); 
-        // exit(); 
-    // }
+            
+ 
+    
         //command
 
     ?>

@@ -44,6 +44,7 @@
  <form class="d-flex flex-column align-items-center justify-content-center" action="log-in.php" method="POST">
     <?php
     include 'connection.php';
+    $_SESSION['state']='';
     if(isset($_POST['submit'])){
       $email = htmlspecialchars($_POST['email']);
       $pwd =  htmlspecialchars($_POST['pwd']);

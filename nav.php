@@ -27,14 +27,7 @@
     <a class="dropdown-item" href="inscription.php">Sign up</a>
   </div>
 </div>
-
-                        </li>
-                </ul>
+    </li>
+        </ul>
             </div>
-        </div>
     </nav>
-    <style>
-        .btn btn-secondary{
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-    </style>

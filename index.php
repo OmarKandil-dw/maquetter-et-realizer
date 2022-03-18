@@ -74,17 +74,6 @@ while ($row = mysqli_fetch_array($query)){
         
         
         
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
-        
         <div class="button py-5">
             <div class="col-md-12 text-center">
      <a href="product.php"><button type="button"  class="btn btn-light btn-lg p-4">SEE MORE</button></a>

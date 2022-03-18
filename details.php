@@ -2,7 +2,6 @@
 include "connection.php";
 session_start();
 if(isset($_POST['add'])){
-    $count = $_SESSION['count'];
         $qte = $_POST['qte'];
         $prdid = $_SESSION['idprd'];
         $sql =  "INSERT INTO temp (quantity, idProduit) VALUES ('$qte', '$prdid')";
